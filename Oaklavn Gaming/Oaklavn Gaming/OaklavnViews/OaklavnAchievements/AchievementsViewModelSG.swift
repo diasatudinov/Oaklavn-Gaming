@@ -20,7 +20,7 @@ class AchievementsViewModelSG: ObservableObject {
         
     }
     
-    private let userDefaultsAchievementsKey = "achievementsKeySG"
+    private let userDefaultsAchievementsKey = "achievementsKeyOaklavn"
     
     func achieveToggle(_ achive: AchievementSG) {
         guard let index = achievements.firstIndex(where: { $0.id == achive.id })
