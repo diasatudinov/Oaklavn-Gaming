@@ -10,22 +10,9 @@
 		2B7F26E42DCD110E0013E08E /* Oaklavn Gaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oaklavn Gaming.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2B7F274E2DCD11540013E08E /* Exceptions for "Oaklavn Gaming" folder in "Oaklavn Gaming" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"Oaklavn-Gaming-Info.plist",
-			);
-			target = 2B7F26E32DCD110E0013E08E /* Oaklavn Gaming */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2B7F26E62DCD110E0013E08E /* Oaklavn Gaming */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				2B7F274E2DCD11540013E08E /* Exceptions for "Oaklavn Gaming" folder in "Oaklavn Gaming" target */,
-			);
 			path = "Oaklavn Gaming";
 			sourceTree = "<group>";
 		};

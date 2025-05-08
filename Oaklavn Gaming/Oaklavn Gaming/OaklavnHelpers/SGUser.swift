@@ -1,3 +1,11 @@
+//
+//  SGUser.swift
+//  Oaklavn Gaming
+//
+//  Created by Dias Atudinov on 08.05.2025.
+//
+
+
 import SwiftUI
 
 class SGUser: ObservableObject {
