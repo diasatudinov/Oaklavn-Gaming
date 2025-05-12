@@ -1,22 +1,14 @@
-//
-//  CoupleGameView.swift
-//  Oaklavn Gaming
-//
-//  Created by Dias Atudinov on 12.05.2025.
-//
-
-
 import SwiftUI
 import AVFoundation
 
 struct OaklavnCoupleGameView: View {
     @Environment(\.presentationMode) var presentationMode
 
-    @StateObject var user = SGUser.shared
+    @StateObject var user = OaklavnUser.shared
     @State private var audioPlayer: AVAudioPlayer?
     
-    @State private var cards: [Card] = []
-    @State private var selectedCards: [Card] = []
+    @State private var cards: [OaklavnCard] = []
+    @State private var selectedCards: [OaklavnCard] = []
     @State private var message: String = "Find all matching cards!"
     @State private var gameEnded: Bool = false
     @State private var isWin: Bool = false
@@ -41,7 +33,7 @@ struct OaklavnCoupleGameView: View {
                             Image(.backIconOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 160:80)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 160:80)
                         }
                         
                         Spacer()
@@ -51,16 +43,16 @@ struct OaklavnCoupleGameView: View {
                         Image(.findCoupleTextOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 240:120)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 240:120)
                         
                         ZStack {
                             Image(.coupleTimerBgOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 140:70)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 140:70)
                             
                             Text("\(timeLeft)")
-                                .font(.system(size: SGDeviceManager.shared.deviceType == .pad ? 40:20, weight: .bold))
+                                .font(.system(size: OaklavnDeviceManager.shared.deviceType == .pad ? 40:20, weight: .bold))
                                 .foregroundStyle(.yellow)
                         }
                     }
@@ -72,16 +64,16 @@ struct OaklavnCoupleGameView: View {
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 0) {
                             
                             ForEach(cards) { card in
-                                CardView(card: card)
+                                OaklavnCardView(card: card)
                                     .onTapGesture {
                                         flipCard(card)
                                     }
                                     .opacity(card.isMatched ? 0.5 : 1.0)
                             }
                             
-                        }.frame(width: SGDeviceManager.shared.deviceType == .pad ? 400:300)
+                        }.frame(width: OaklavnDeviceManager.shared.deviceType == .pad ? 400:300)
                     }
-                    .frame(width: SGDeviceManager.shared.deviceType == .pad ? 500:350)
+                    .frame(width: OaklavnDeviceManager.shared.deviceType == .pad ? 500:350)
                    
                 }
                 .onAppear {
@@ -98,7 +90,7 @@ struct OaklavnCoupleGameView: View {
                             Image(.winBoardOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 800:400)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 800:400)
                             
                             HStack {
                                 
@@ -108,7 +100,7 @@ struct OaklavnCoupleGameView: View {
                                     Image(.homeBtnOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                                 }
                                 Button {
                                     setupGame()
@@ -116,7 +108,7 @@ struct OaklavnCoupleGameView: View {
                                     Image(.nextBtnOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                                 }
                             }
                         }
@@ -136,7 +128,7 @@ struct OaklavnCoupleGameView: View {
                                     Image(.homeBtnOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                                 }
                                 Button {
                                     setupGame()
@@ -144,7 +136,7 @@ struct OaklavnCoupleGameView: View {
                                     Image(.nextBtnOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                                 }
                             }
                         }
@@ -193,12 +185,12 @@ struct OaklavnCoupleGameView: View {
         // Restart timer
         timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         // Generate cards
-        var gameCards = [Card]()
+        var gameCards = [OaklavnCard]()
         
         // Add 4 cards of each type (24 cards total for 6 types)
         for type in cardTypes {
-            gameCards.append(Card(type: type))
-            gameCards.append(Card(type: type))
+            gameCards.append(OaklavnCard(type: type))
+            gameCards.append(OaklavnCard(type: type))
         }
                 
         // Shuffle cards
@@ -208,7 +200,7 @@ struct OaklavnCoupleGameView: View {
         cards = Array(gameCards.prefix(gridSize * gridSize))
     }
     
-    private func flipCard(_ card: Card) {
+    private func flipCard(_ card: OaklavnCard) {
         guard let index = cards.firstIndex(where: { $0.id == card.id }),
               !cards[index].isFaceUp,
               !cards[index].isMatched,

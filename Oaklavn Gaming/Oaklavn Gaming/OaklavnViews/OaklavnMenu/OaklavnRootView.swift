@@ -1,11 +1,3 @@
-//
-//  RootSG.swift
-//  Oaklavn Gaming
-//
-//  Created by Dias Atudinov on 12.05.2025.
-//
-
-
 import SwiftUI
 
 struct OaklavnRootView: View {
@@ -21,9 +13,9 @@ struct OaklavnRootView: View {
             } else {
                 VStack {
                     if isLoading {
-                        SplashScreenSG()
+                        OaklavnLoaderView()
                     } else {
-                        MenuViewSG()
+                        OaklavnMainMenu()
                             .onAppear {
                                 AppDelegate.orientationLock = .portrait
                                 setOrientation(.portrait)

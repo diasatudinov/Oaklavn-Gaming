@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct OaklavnCardView: View {
-    let card: Card
+    let card: OaklavnCard
 
     var body: some View {
         ZStack {
@@ -9,17 +9,17 @@ struct OaklavnCardView: View {
                 Image(card.type)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:120)
+                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:120)
             } else {
                 Image(.cardBackOaklavn)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:120)
+                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:120)
             }
         }
     }
 }
 
 #Preview {
-    OaklavnCardView(card: Card(type: "cardFace1Oaklavn"))
+    OaklavnCardView(card: OaklavnCard(type: "cardFace1Oaklavn"))
 }

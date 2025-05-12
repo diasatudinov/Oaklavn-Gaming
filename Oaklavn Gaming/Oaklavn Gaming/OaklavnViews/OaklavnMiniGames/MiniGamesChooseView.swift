@@ -18,7 +18,7 @@ struct OaklavnChooseView: View {
                             Image(.backIconOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 150:75)
                         }
                         Spacer()
                     }.padding([.horizontal, .top])
@@ -27,7 +27,7 @@ struct OaklavnChooseView: View {
                 Image(.chooseGameTextOaklavn)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 150:75)
                 
                 VStack {
                     Button {
@@ -36,7 +36,7 @@ struct OaklavnChooseView: View {
                         Image(.game1Oaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                             
                           
                     }.offset(x: -25)
@@ -47,7 +47,7 @@ struct OaklavnChooseView: View {
                         Image(.game2Oaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                           
                     }
                     
@@ -57,7 +57,7 @@ struct OaklavnChooseView: View {
                         Image(.game3Oaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                             
                     }.offset(x: -25)
                     
@@ -67,7 +67,7 @@ struct OaklavnChooseView: View {
                         Image(.game4Oaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                           
                     }
                 }
@@ -84,17 +84,17 @@ struct OaklavnChooseView: View {
             }
         )
         .fullScreenCover(isPresented: $game1) {
-           CoupleGameView()
+           OaklavnCoupleGameView()
         }
         .fullScreenCover(isPresented: $game2) {
-            MemorizationViewSG()
+            OaklavnMemorizationView()
             
         }
         .fullScreenCover(isPresented: $game3) {
-           // LabirintGameView()
+           OaklavnMazeGameView()
         }
         .fullScreenCover(isPresented: $game4) {
-            //NumberGuessGame()
+            OaklavnNumberGuessGame()
         }
     }
 }
