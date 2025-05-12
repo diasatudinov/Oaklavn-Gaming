@@ -7,35 +7,20 @@ enum StoreSection: Codable, Hashable {
 
 class StoreViewModelSG: ObservableObject {
     @Published var shopTeamItems: [Item] = [
-        
-        Item(name: "bg1", image: "gameBg1SG", icon: "backIcon1SG", section: .backgrounds, price: 100),
-        Item(name: "bg2", image: "gameBg2SG", icon: "backIcon2SG", section: .backgrounds, price: 100),
-        Item(name: "bg3", image: "gameBg3SG", icon: "backIcon3SG", section: .backgrounds, price: 100),
-        Item(name: "bg4", image: "gameBg4SG", icon: "backIcon4SG", section: .backgrounds, price: 100),
-        Item(name: "bg5", image: "gameBg5SG", icon: "backIcon5SG", section: .backgrounds, price: 100),
-        
-        
-        Item(name: "skin1", image: "imageSkin1SG", icon: "iconSkin1SG", section: .skin, price: 100),
-        Item(name: "skin2", image: "imageSkin2SG", icon: "iconSkin2SG", section: .skin, price: 100),
-        Item(name: "skin3", image: "imageSkin3SG", icon: "iconSkin3SG", section: .skin, price: 100),
-        Item(name: "skin4", image: "imageSkin4SG", icon: "iconSkin4SG", section: .skin, price: 100),
-        Item(name: "skin5", image: "imageSkin5SG", icon: "iconSkin5SG", section: .skin, price: 100),
-        Item(name: "skin6", image: "imageSkin6SG", icon: "iconSkin6SG", section: .skin, price: 100),
-         
+        Item(name: "spot", image: "imageSkin1Oaklavn", icon: "imageSkin1Oaklavn", section: .skin, price: 100),
+        Item(name: "snow", image: "imageSkin2Oaklavn", icon: "imageSkin2Oaklavn", section: .skin, price: 100),
+        Item(name: "pooh", image: "imageSkin3Oaklavn", icon: "imageSkin3Oaklavn", section: .skin, price: 100),
+        Item(name: "bell", image: "imageSkin4Oaklavn", icon: "imageSkin4Oaklavn", section: .skin, price: 100),
+        Item(name: "pony", image: "imageSkin5Oaklavn", icon: "imageSkin5Oaklavn", section: .skin, price: 100),
+        Item(name: "blackie", image: "imageSkin6Oaklavn", icon: "imageSkin6Oaklavn", section: .skin, price: 100),
+        Item(name: "spirit", image: "imageSkin7Oaklavn", icon: "imageSkin7Oaklavn", section: .skin, price: 100),
     ]
     
     @Published var boughtItems: [Item] = [
-        Item(name: "bg1", image: "gameBg1SG", icon: "backIcon1SG", section: .backgrounds, price: 100),
-        Item(name: "skin1", image: "imageSkin1SG", icon: "iconSkin1SG", section: .skin, price: 100),
+        Item(name: "spot", image: "imageSkin1Oaklavn", icon: "imageSkin1Oaklavn", section: .skin, price: 100),
     ] {
         didSet {
             saveBoughtItem()
-        }
-    }
-    
-    @Published var currentBgItem: Item? {
-        didSet {
-            saveCurrentBg()
         }
     }
     
@@ -46,33 +31,13 @@ class StoreViewModelSG: ObservableObject {
     }
     
     init() {
-        loadCurrentBg()
         loadCurrentPerson()
         loadBoughtItem()
     }
     
-    private let userDefaultsBgKey = "BgKeySG"
     private let userDefaultsPersonKey = "BirdKeySG"
     private let userDefaultsBoughtKey = "boughtItemsSG"
 
-    
-    func saveCurrentBg() {
-        if let currentItem = currentBgItem {
-            if let encodedData = try? JSONEncoder().encode(currentItem) {
-                UserDefaults.standard.set(encodedData, forKey: userDefaultsBgKey)
-            }
-        }
-    }
-    
-    func loadCurrentBg() {
-        if let savedData = UserDefaults.standard.data(forKey: userDefaultsBgKey),
-           let loadedItem = try? JSONDecoder().decode(Item.self, from: savedData) {
-            currentBgItem = loadedItem
-        } else {
-            currentBgItem = shopTeamItems[0]
-            print("No saved data found")
-        }
-    }
     
     func saveCurrentPerson() {
         if let currentItem = currentPersonItem {
@@ -87,7 +52,7 @@ class StoreViewModelSG: ObservableObject {
            let loadedItem = try? JSONDecoder().decode(Item.self, from: savedData) {
             currentPersonItem = loadedItem
         } else {
-            currentPersonItem = shopTeamItems[8]
+            currentPersonItem = shopTeamItems[0]
             print("No saved data found")
         }
     }
