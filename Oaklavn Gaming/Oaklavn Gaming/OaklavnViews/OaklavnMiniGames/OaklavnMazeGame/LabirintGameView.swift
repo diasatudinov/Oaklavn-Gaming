@@ -24,13 +24,13 @@ struct LabirintGameView: View {
                             presentationMode.wrappedValue.dismiss()
                             
                         } label: {
-                            Image(.backIconSG)
+                            Image(.backIconOaklavn)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
-                        Image(.maizeTextSG)
+                        Image(.mazeTextOaklavn)
                             .resizable()
                             .scaledToFit()
                             .frame(height: SGDeviceManager.shared.deviceType == .pad ? 300:150)
@@ -46,7 +46,7 @@ struct LabirintGameView: View {
                         gameScene.moveUp()
                         
                     } label: {
-                        Image(.controlArrowSG)
+                        Image(.controlArrowOaklavn)
                             .resizable()
                             .scaledToFit()
                             .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
@@ -55,7 +55,7 @@ struct LabirintGameView: View {
                         Button {
                             gameScene.moveLeft()
                         } label: {
-                            Image(.controlArrowSG)
+                            Image(.controlArrowOaklavn)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
@@ -66,7 +66,7 @@ struct LabirintGameView: View {
                         Button {
                             gameScene.moveRight()
                         } label: {
-                            Image(.controlArrowSG)
+                            Image(.controlArrowOaklavn)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
@@ -77,7 +77,7 @@ struct LabirintGameView: View {
                     Button {
                         gameScene.moveDown()
                     } label: {
-                        Image(.controlArrowSG)
+                        Image(.controlArrowOaklavn)
                             .resizable()
                             .scaledToFit()
                             .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
