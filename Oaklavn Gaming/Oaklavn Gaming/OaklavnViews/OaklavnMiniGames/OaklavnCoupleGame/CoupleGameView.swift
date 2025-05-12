@@ -1,3 +1,11 @@
+//
+//  CoupleGameView.swift
+//  Oaklavn Gaming
+//
+//  Created by Dias Atudinov on 12.05.2025.
+//
+
+
 import SwiftUI
 import AVFoundation
 
@@ -13,7 +21,7 @@ struct CoupleGameView: View {
     @State private var gameEnded: Bool = false
     @State private var isWin: Bool = false
     @State private var pauseShow: Bool = false
-    private let cardTypes = ["cardFace1SG", "cardFace2SG", "cardFace3SG", "cardFace4SG", "cardFace5SG", "cardFace6SG"]
+    private let cardTypes = ["cardFace1Oaklavn", "cardFace2Oaklavn", "cardFace3Oaklavn", "cardFace4Oaklavn", "cardFace5Oaklavn", "cardFace6Oaklavn"]
     private let gridSize = 4
     
     @State private var counter: Int = 0
@@ -30,7 +38,7 @@ struct CoupleGameView: View {
                             presentationMode.wrappedValue.dismiss()
                             
                         } label: {
-                            Image(.homeIconSG)
+                            Image(.backIconOaklavn)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: SGDeviceManager.shared.deviceType == .pad ? 160:80)
@@ -39,14 +47,14 @@ struct CoupleGameView: View {
                         Spacer()
                     }
                     
-                    VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? -40:-20) {
-                        Image(.findCoupleText)
+                    VStack(spacing: 0) {
+                        Image(.findCoupleTextOaklavn)
                             .resizable()
                             .scaledToFit()
                             .frame(height: SGDeviceManager.shared.deviceType == .pad ? 240:120)
                         
                         ZStack {
-                            Image(.coupleTimerBg)
+                            Image(.coupleTimerBgOaklavn)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: SGDeviceManager.shared.deviceType == .pad ? 140:70)
@@ -57,16 +65,21 @@ struct CoupleGameView: View {
                         }
                     }
                     
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 3), spacing: 20) {
-                        ForEach(cards) { card in
-                            CardView(card: card)
-                                .onTapGesture {
-                                    flipCard(card)
-                                   
-                                }
-                                .opacity(card.isMatched ? 0.5 : 1.0)
-                        }
-                        
+                    ZStack {
+                        Image(.gameBgOaklavn)
+                            .resizable()
+                            .scaledToFit()
+                        LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 0) {
+                            
+                            ForEach(cards) { card in
+                                CardView(card: card)
+                                    .onTapGesture {
+                                        flipCard(card)
+                                    }
+                                    .opacity(card.isMatched ? 0.5 : 1.0)
+                            }
+                            
+                        }.frame(width: SGDeviceManager.shared.deviceType == .pad ? 400:300)
                     }
                     .frame(width: SGDeviceManager.shared.deviceType == .pad ? 500:350)
                    
@@ -78,41 +91,61 @@ struct CoupleGameView: View {
             if gameEnded {
                 if isWin {
                     ZStack {
-                        Image(.coupleGameBgSG)
+                        Image(.gameOverBgOaklavn)
                             .resizable()
+                            .ignoresSafeArea()
                         VStack(spacing: -40) {
-                            Image(.winTextSG)
+                            Image(.winBoardOaklavn)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: SGDeviceManager.shared.deviceType == .pad ? 800:400)
                             
-                            Button {
-                                setupGame()
-                            } label: {
-                                Image(.nextButtonSG)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                            HStack {
+                                
+                                Button {
+                                    presentationMode.wrappedValue.dismiss()
+                                } label: {
+                                    Image(.homeBtnOaklavn)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                }
+                                Button {
+                                    setupGame()
+                                } label: {
+                                    Image(.nextBtnOaklavn)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                }
                             }
                         }
                     }
                 } else {
                     ZStack {
-                        Image(.coupleGameBgSG)
+                        Image(.gameOverBgOaklavn)
                             .resizable()
-                        VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? -80:-40) {
-                            Image(.loseTextSG)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 360:180)
+                            .ignoresSafeArea()
+                        VStack(spacing: -40) {
                             
-                            Button {
-                                setupGame()
-                            } label: {
-                                Image(.tryAgainIconSG)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 300:150)
+                            HStack {
+                                
+                                Button {
+                                    presentationMode.wrappedValue.dismiss()
+                                } label: {
+                                    Image(.homeBtnOaklavn)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                }
+                                Button {
+                                    setupGame()
+                                } label: {
+                                    Image(.nextBtnOaklavn)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                }
                             }
                         }
                     }
@@ -131,11 +164,8 @@ struct CoupleGameView: View {
                 timer.upstream.connect().cancel()
             }
         }
-//        .onAppear {
-//            startTimer()
-//        }
         .background(
-            Image(.coupleGameBgSG)
+            Image(.coupleGameBgOaklavn)
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .scaledToFill()

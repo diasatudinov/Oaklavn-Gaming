@@ -11,7 +11,7 @@ struct CardView: View {
                     .scaledToFit()
                     .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:120)
             } else {
-                Image(.cardBackSG)
+                Image(.cardBackOaklavn)
                     .resizable()
                     .scaledToFit()
                     .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:120)
@@ -21,5 +21,5 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(card: Card(type: "cardFace1SG"))
+    CardView(card: Card(type: "cardFace1Oaklavn"))
 }

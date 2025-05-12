@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MiniGamesChooseView: View {
+struct OaklavnChooseView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var game1 = false
     @State private var game2 = false
@@ -15,7 +15,7 @@ struct MiniGamesChooseView: View {
                             presentationMode.wrappedValue.dismiss()
                             
                         } label: {
-                            Image(.backIconSG)
+                            Image(.backIconOaklavn)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
@@ -24,7 +24,7 @@ struct MiniGamesChooseView: View {
                     }.padding([.horizontal, .top])
                 }
                 
-                Image(.choseeGameTextSG)
+                Image(.chooseGameTextOaklavn)
                     .resizable()
                     .scaledToFit()
                     .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
@@ -33,17 +33,18 @@ struct MiniGamesChooseView: View {
                     Button {
                         game1 = true
                     } label: {
-                        Image(.game1SG)
+                        Image(.game1Oaklavn)
                             .resizable()
                             .scaledToFit()
                             .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                            
                           
-                    }
+                    }.offset(x: -25)
                     
                     Button {
                         game2 = true
                     } label: {
-                        Image(.game2SG)
+                        Image(.game2Oaklavn)
                             .resizable()
                             .scaledToFit()
                             .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
@@ -53,17 +54,17 @@ struct MiniGamesChooseView: View {
                     Button {
                         game3 = true
                     } label: {
-                        Image(.game3SG)
+                        Image(.game3Oaklavn)
                             .resizable()
                             .scaledToFit()
                             .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
-                          
-                    }
+                            
+                    }.offset(x: -25)
                     
                     Button {
                         game4 = true
                     } label: {
-                        Image(.game4SG)
+                        Image(.game4Oaklavn)
                             .resizable()
                             .scaledToFit()
                             .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
@@ -76,27 +77,28 @@ struct MiniGamesChooseView: View {
             }
         }.background(
             ZStack {
-                Image(.menuBgSG)
+                Image(.menuBgOaklavn)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .scaledToFill()
             }
         )
         .fullScreenCover(isPresented: $game1) {
-            CoupleGameView()
+           CoupleGameView()
         }
         .fullScreenCover(isPresented: $game2) {
-            NumberGuessGame()
+            MemorizationViewSG()
+            
         }
         .fullScreenCover(isPresented: $game3) {
-            LabirintGameView()
+           // LabirintGameView()
         }
         .fullScreenCover(isPresented: $game4) {
-            MemorizationViewSG()
+            //NumberGuessGame()
         }
     }
 }
 
 #Preview {
-    MiniGamesChooseView()
+    OaklavnChooseView()
 }
