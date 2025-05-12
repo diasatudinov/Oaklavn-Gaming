@@ -16,30 +16,31 @@ struct ChooseLevelView: View {
                             presentationMode.wrappedValue.dismiss()
                             
                         } label: {
-                            Image(.backIconSG)
+                            Image(.backIconOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 150:75)
                         }
                         Spacer()
-                        CoinBgSG()
+                        OaklavnCoinBg()
                     }.padding([.horizontal, .top])
                 }
-                ScrollView {
+                Spacer()
+                VStack {
                     HStack {
                         Spacer()
                     }
                     ForEach(Range(0...9)) { index in
                         ZStack {
-                            Image(.planetLevel1)
+                            Image(.tagaOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: SGDeviceManager.shared.deviceType == .pad ? 200:100,height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                .frame(width: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50,height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                             
                             Text("\(index + 1)")
-                                .font(.system(size: SGDeviceManager.shared.deviceType == .pad ? 80:40, weight: .bold))
-                                .foregroundStyle(.black)
-                        }.offset(x: CGFloat(Int.random(in: SGDeviceManager.shared.deviceType == .pad ? Range(-130...130):Range(-65...65))))
+                                .font(.system(size: OaklavnDeviceManager.shared.deviceType == .pad ? 40:20, weight: .black))
+                                .foregroundStyle(.white)
+                        }.offset(x: putXLevels(for: index), y: putYLevels(for: index))
                             .onTapGesture {
                                 selectedIndex = index
                                 DispatchQueue.main.async {
@@ -49,10 +50,11 @@ struct ChooseLevelView: View {
                             }
                     }
                 }
+                Spacer()
             }
         }.background(
             ZStack {
-                Image(.shopBgSG)
+                Image(.chooseLevelMainGameOaklavn)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .scaledToFill()
@@ -60,6 +62,60 @@ struct ChooseLevelView: View {
         )
         .fullScreenCover(isPresented: $openGame) {
             GameView(shopVM: shopVM, achievementVM: achievementVM, level: selectedIndex)
+        }
+    }
+    
+    func putXLevels(for index: Int) -> CGFloat {
+        switch index {
+        case 0:
+            return 15
+        case 1:
+            return 60
+        case 2:
+            return 0
+        case 3:
+            return -50
+        case 4:
+            return 0
+        case 5:
+            return 50
+        case 6:
+            return 90
+        case 7:
+            return 150
+        case 8:
+            return 180
+        case 9:
+            return 150
+        default:
+            return 0
+        }
+    }
+    
+    func putYLevels(for index: Int) -> CGFloat {
+        switch index {
+        case 0:
+            return 0
+        case 1:
+            return -20
+        case 2:
+            return -10
+        case 3:
+            return -10
+        case 4:
+            return 0
+        case 5:
+            return -40
+        case 6:
+            return -70
+        case 7:
+            return -120
+        case 8:
+            return 0
+        case 9:
+            return 0
+        default:
+            return 0
         }
     }
 }

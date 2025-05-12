@@ -4,8 +4,8 @@ class OaklavnUser: ObservableObject {
     
     static let shared = OaklavnUser()
     
-    @AppStorage("achievement") var achievementNum: Int = 0
-    @AppStorage("money") var storedMoney: Int = 100
+    @AppStorage("achievements") var achievementNum: Int = 0
+    @AppStorage("moneys") var storedMoney: Int = 100
     @Published var money: Int = 100
     @Published var oldMoney = 0
     init() {
