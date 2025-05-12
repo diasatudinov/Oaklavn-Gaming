@@ -1,17 +1,12 @@
-//
-//  Oaklavn_GamingApp.swift
-//  Oaklavn Gaming
-//
-//  Created by Dias Atudinov on 08.05.2025.
-//
-
 import SwiftUI
 
 @main
 struct Oaklavn_GamingApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OaklavnRootView()
+                .preferredColorScheme(.light)
         }
     }
 }
