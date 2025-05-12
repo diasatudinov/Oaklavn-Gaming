@@ -4,11 +4,9 @@ struct MemorizationViewSG: View {
     @StateObject var user = SGUser.shared
     @Environment(\.presentationMode) var presentationMode
     
-    // Names of the images in your Assets catalog
-    let cardImages = ["card1SG", "card2SG", "card3SG", "card4SG", "card5SG", "card6SG", "card7SG", "card8SG"]
+    let cardImages = ["card1Oaklavn", "card2Oaklavn", "card3Oaklavn", "card4Oaklavn", "card5Oaklavn", "card6Oaklavn", "card7Oaklavn", "card8Oaklavn"]
     let sequenceLength = 3
     
-    // Game state
     @State private var sequence: [Int] = []
     @State private var currentStep: Int? = nil
     @State private var gamePhase: GamePhase = .showing
@@ -31,7 +29,7 @@ struct MemorizationViewSG: View {
                                 presentationMode.wrappedValue.dismiss()
                                 
                             } label: {
-                                Image(.homeIconSG)
+                                Image(.backIconOaklavn)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
@@ -39,7 +37,7 @@ struct MemorizationViewSG: View {
                             Spacer()
                         }.padding([.horizontal, .top])
                         
-                        Image(.memorizationTextSG)
+                        Image(.memorizationTextOaklavn)
                             .resizable()
                             .scaledToFit()
                             .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
@@ -57,16 +55,21 @@ struct MemorizationViewSG: View {
                             .transition(.opacity)
                     }
                 } else {
-                    // Grid for user interaction
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 4), spacing: 12) {
-                        ForEach(0..<cardImages.count, id: \.self) { index in
-                            MemorizationCardView(imageName: cardImages[index])
-                                .onTapGesture {
-                                    handleTap(on: index)
-                                }
+                    ZStack {
+                        Image(.memorizationGameBgOaklavn)
+                            .resizable()
+                            .scaledToFit()
+                        // Grid for user interaction
+                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 2), count: 3), spacing: 2) {
+                            ForEach(0..<cardImages.count, id: \.self) { index in
+                                MemorizationCardView(imageName: cardImages[index])
+                                    .onTapGesture {
+                                        handleTap(on: index)
+                                    }
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
                 
                 Spacer()
@@ -78,41 +81,61 @@ struct MemorizationViewSG: View {
                 
                 if userInputIndex >= sequenceLength {
                     ZStack {
-                        Image(.mazeViewBg)
+                        Image(.gameOverBgOaklavn)
                             .resizable()
-                        VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? -80:-40) {
-                            Image(.winTextSG)
+                            .ignoresSafeArea()
+                        VStack(spacing: -40) {
+                            Image(.winBoardOaklavn)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: SGDeviceManager.shared.deviceType == .pad ? 800:400)
                             
-                            Button {
-                                startGame()
-                            } label: {
-                                Image(.nextButtonSG)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                            HStack {
+                                
+                                Button {
+                                    presentationMode.wrappedValue.dismiss()
+                                } label: {
+                                    Image(.homeBtnOaklavn)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                }
+                                Button {
+                                    startGame()
+                                } label: {
+                                    Image(.nextBtnOaklavn)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                }
                             }
                         }
                     }
                 } else {
                     ZStack {
-                        Image(.mazeViewBg)
+                        Image(.gameOverBgOaklavn)
                             .resizable()
-                        VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? -80:-40) {
-                            Image(.loseTextSG)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 360:180)
+                            .ignoresSafeArea()
+                        VStack(spacing: -40) {
                             
-                            Button {
-                                startGame()
-                            } label: {
-                                Image(.tryAgainIconSG)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 300:150)
+                            HStack {
+                                
+                                Button {
+                                    presentationMode.wrappedValue.dismiss()
+                                } label: {
+                                    Image(.homeBtnOaklavn)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                }
+                                Button {
+                                    startGame()
+                                } label: {
+                                    Image(.nextBtnOaklavn)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                }
                             }
                         }
                     }
@@ -122,7 +145,7 @@ struct MemorizationViewSG: View {
         }
         .background(
             ZStack {
-                Image(.mazeViewBg)
+                Image(.memorizationBgOaklavn)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .scaledToFill()
