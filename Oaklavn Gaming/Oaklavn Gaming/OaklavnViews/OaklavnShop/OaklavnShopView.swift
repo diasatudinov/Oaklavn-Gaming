@@ -4,7 +4,7 @@ struct OaklavnShopView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject var user = OaklavnUser.shared
     @State var section: StoreSection = .skin
-    @ObservedObject var viewModel: StoreViewModelSG
+    @ObservedObject var viewModel: OaklavnStoreViewModel
     @State var skinIndex: Int = 0
     @State var backIndex: Int = 0
     var body: some View {
@@ -165,5 +165,5 @@ struct OaklavnShopView: View {
 }
 
 #Preview {
-    OaklavnShopView(viewModel: StoreViewModelSG())
+    OaklavnShopView(viewModel: OaklavnStoreViewModel())
 }

@@ -5,7 +5,7 @@ enum StoreSection: Codable, Hashable {
     case skin
 }
 
-class StoreViewModelSG: ObservableObject {
+class OaklavnStoreViewModel: ObservableObject {
     @Published var shopTeamItems: [Item] = [
         Item(name: "spot", image: "iconSkin1Oaklavn", icon: "imageSkin1Oaklavn", section: .skin, price: 100),
         Item(name: "snow", image: "iconSkin2Oaklavn", icon: "imageSkin2Oaklavn", section: .skin, price: 100),

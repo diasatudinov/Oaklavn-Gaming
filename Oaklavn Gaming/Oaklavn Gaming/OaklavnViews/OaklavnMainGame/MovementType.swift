@@ -16,7 +16,7 @@ struct ShipConfig {
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var shopVM = StoreViewModelSG()
+    var shopVM = OaklavnStoreViewModel()
     var levelIndex: Int?
     private var lastTappedShip: SKSpriteNode?
     private var shipArrows: [SKSpriteNode: SKSpriteNode] = [:]
@@ -307,5 +307,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 }
 
 #Preview {
-    GameView(shopVM: StoreViewModelSG(), achievementVM: AchievementsViewModelSG(), level: 0)
+    GameView(shopVM: OaklavnStoreViewModel(), achievementVM: OaklavnAchievementsViewModel(), level: 0)
 }

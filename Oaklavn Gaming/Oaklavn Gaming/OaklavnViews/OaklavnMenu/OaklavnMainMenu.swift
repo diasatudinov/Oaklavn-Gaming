@@ -7,9 +7,9 @@ struct OaklavnMainMenu: View {
     @State private var showMiniGames = false
     @State private var showSettings = false
     
-    @StateObject var achievementVM = AchievementsViewModelSG()
-    @StateObject var settingsVM = SettingsViewModelSG()
-    @StateObject var shopVM = StoreViewModelSG()
+    @StateObject var achievementVM = OaklavnAchievementsViewModel()
+    @StateObject var settingsVM = OaklavnSettingsViewModel()
+    @StateObject var shopVM = OaklavnStoreViewModel()
     
     var body: some View {
         

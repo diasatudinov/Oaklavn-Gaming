@@ -4,7 +4,7 @@ import StoreKit
 struct SettingsViewOaklavn: View {
     @Environment(\.presentationMode) var presentationMode
 
-    @ObservedObject var settingsVM: SettingsViewModelSG
+    @ObservedObject var settingsVM: OaklavnSettingsViewModel
     var body: some View {
         ZStack {
             
@@ -167,5 +167,5 @@ struct SettingsViewOaklavn: View {
 }
 
 #Preview {
-    SettingsViewOaklavn(settingsVM: SettingsViewModelSG())
+    SettingsViewOaklavn(settingsVM: OaklavnSettingsViewModel())
 }

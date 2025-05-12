@@ -1,13 +1,13 @@
 import SwiftUI
 
-class AchievementsViewModelSG: ObservableObject {
+class OaklavnAchievementsViewModel: ObservableObject {
     
-    @Published var achievements: [AchievementSG] = [
-        AchievementSG(image: "achi1IconOaklavn", achievedCount: 0, achievedMaxCount: 1, isAchieved: false),
-        AchievementSG(image: "achi2IconOaklavn", achievedCount: 0, achievedMaxCount: 5, isAchieved: false),
-        AchievementSG(image: "achi3IconOaklavn", achievedCount: 0, achievedMaxCount: 1, isAchieved: false),
-        AchievementSG(image: "achi4IconOaklavn", achievedCount: 0, achievedMaxCount: 10, isAchieved: false),
-        AchievementSG(image: "achi5IconOaklavn", achievedCount: 0, achievedMaxCount: 20, isAchieved: false)
+    @Published var achievements: [OaklavnAchievement] = [
+        OaklavnAchievement(image: "achi1IconOaklavn", achievedCount: 0, achievedMaxCount: 1, isAchieved: false),
+        OaklavnAchievement(image: "achi2IconOaklavn", achievedCount: 0, achievedMaxCount: 5, isAchieved: false),
+        OaklavnAchievement(image: "achi3IconOaklavn", achievedCount: 0, achievedMaxCount: 1, isAchieved: false),
+        OaklavnAchievement(image: "achi4IconOaklavn", achievedCount: 0, achievedMaxCount: 10, isAchieved: false),
+        OaklavnAchievement(image: "achi5IconOaklavn", achievedCount: 0, achievedMaxCount: 20, isAchieved: false)
 
     ] {
         didSet {
@@ -22,7 +22,7 @@ class AchievementsViewModelSG: ObservableObject {
     
     private let userDefaultsAchievementsKey = "achievementsKeyOaklavn"
     
-    func achieveToggle(_ achive: AchievementSG) {
+    func achieveToggle(_ achive: OaklavnAchievement) {
         guard let index = achievements.firstIndex(where: { $0.id == achive.id })
         else {
             return
@@ -31,7 +31,7 @@ class AchievementsViewModelSG: ObservableObject {
         
     }
     
-    func achieveCheck(_ achive: AchievementSG) {
+    func achieveCheck(_ achive: OaklavnAchievement) {
         guard let index = achievements.firstIndex(where: { $0.image == achive.image })
         else {
             return
@@ -53,7 +53,7 @@ class AchievementsViewModelSG: ObservableObject {
     
     func loadAchievementsItem() {
         if let savedData = UserDefaults.standard.data(forKey: userDefaultsAchievementsKey),
-           let loadedItem = try? JSONDecoder().decode([AchievementSG].self, from: savedData) {
+           let loadedItem = try? JSONDecoder().decode([OaklavnAchievement].self, from: savedData) {
             achievements = loadedItem
         } else {
             print("No saved data found")
@@ -61,7 +61,7 @@ class AchievementsViewModelSG: ObservableObject {
     }
 }
 
-struct AchievementSG: Codable, Hashable, Identifiable {
+struct OaklavnAchievement: Codable, Hashable, Identifiable {
     var id = UUID()
     var image: String
     var achievedCount: Int

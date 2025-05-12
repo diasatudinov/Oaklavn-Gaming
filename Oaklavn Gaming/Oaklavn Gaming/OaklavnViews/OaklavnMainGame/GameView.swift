@@ -9,8 +9,8 @@ struct GameView: View {
         scene.scaleMode = .resizeFill
         return scene
     }()
-    @ObservedObject var shopVM: StoreViewModelSG
-    @ObservedObject var achievementVM: AchievementsViewModelSG
+    @ObservedObject var shopVM: OaklavnStoreViewModel
+    @ObservedObject var achievementVM: OaklavnAchievementsViewModel
     @State private var powerUse = false
     @State private var isWin = false
     @State private var score = 0
@@ -161,5 +161,5 @@ struct GameView: View {
 }
 
 #Preview {
-    GameView(shopVM: StoreViewModelSG(), achievementVM: AchievementsViewModelSG(), level: 0)
+    GameView(shopVM: OaklavnStoreViewModel(), achievementVM: OaklavnAchievementsViewModel(), level: 0)
 }

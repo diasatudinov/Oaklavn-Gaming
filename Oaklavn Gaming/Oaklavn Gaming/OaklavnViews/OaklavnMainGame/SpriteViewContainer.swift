@@ -1,11 +1,3 @@
-//
-//  SpriteViewContainer.swift
-//  Oaklavn Gaming
-//
-//  Created by Dias Atudinov on 12.05.2025.
-//
-
-
 import SwiftUI
 import SpriteKit
 

@@ -2,8 +2,8 @@ import SwiftUI
 
 struct ChooseLevelView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var shopVM: StoreViewModelSG
-    @ObservedObject var achievementVM: AchievementsViewModelSG
+    @ObservedObject var shopVM: OaklavnStoreViewModel
+    @ObservedObject var achievementVM: OaklavnAchievementsViewModel
 
     @State var openGame = false
     @State var selectedIndex = 0
@@ -121,5 +121,5 @@ struct ChooseLevelView: View {
 }
 
 #Preview {
-    ChooseLevelView(shopVM: StoreViewModelSG(), achievementVM: AchievementsViewModelSG())
+    ChooseLevelView(shopVM: OaklavnStoreViewModel(), achievementVM: OaklavnAchievementsViewModel())
 }

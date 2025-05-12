@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Oaklavn Gaming
-//
-//  Created by Dias Atudinov on 08.05.2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {

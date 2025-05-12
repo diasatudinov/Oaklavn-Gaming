@@ -2,7 +2,7 @@ import SwiftUI
 
 struct OaklavnAchievementsView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: AchievementsViewModelSG
+    @ObservedObject var viewModel: OaklavnAchievementsViewModel
     var body: some View {
         ZStack {
             
@@ -321,5 +321,5 @@ struct OaklavnAchievementsView: View {
 }
 
 #Preview {
-    OaklavnAchievementsView(viewModel: AchievementsViewModelSG())
+    OaklavnAchievementsView(viewModel: OaklavnAchievementsViewModel())
 }

@@ -59,7 +59,6 @@ struct OaklavnMemorizationView: View {
                         Image(.memorizationGameBgOaklavn)
                             .resizable()
                             .scaledToFit()
-                        // Grid for user interaction
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 2), count: 3), spacing: 2) {
                             ForEach(0..<cardImages.count, id: \.self) { index in
                                 MemorizationCardView(imageName: cardImages[index])
