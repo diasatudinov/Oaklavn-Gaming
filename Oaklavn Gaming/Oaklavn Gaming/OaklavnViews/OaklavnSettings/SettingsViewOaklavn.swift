@@ -20,18 +20,18 @@ struct SettingsViewOaklavn: View {
                         Image(.soundIconOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 140:70)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 140:70)
                         VStack {
                             Image(.soundTextOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 70:35)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 70:35)
                             HStack {
                                 
                                 Image(.minTextOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 20:10)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 20:10)
                                 Button {
                                     withAnimation {
                                         settingsVM.soundEnabled.toggle()
@@ -41,12 +41,12 @@ struct SettingsViewOaklavn: View {
                                     Image(settingsVM.soundEnabled ? .onOaklavn:.offOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 50:25)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 50:25)
                                 }
                                 Image(.maxTextOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 20:10)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 20:10)
                                 
                             }
                         }
@@ -56,19 +56,19 @@ struct SettingsViewOaklavn: View {
                         Image(.musicIconOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 140:70)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 140:70)
                         VStack {
                             Image(.musicTextOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 70:35)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 70:35)
                             
                             HStack {
                                 
                                 Image(.minTextOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 20:10)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 20:10)
                                 Button {
                                     withAnimation {
                                         settingsVM.musicEnabled.toggle()
@@ -78,12 +78,12 @@ struct SettingsViewOaklavn: View {
                                     Image(settingsVM.musicEnabled ? .onOaklavn:.offOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 50:25)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 50:25)
                                 }
                                 Image(.maxTextOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 20:10)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 20:10)
                             }
                         }
                     }
@@ -92,18 +92,18 @@ struct SettingsViewOaklavn: View {
                         Image(.vibraIconOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 140:70)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 140:70)
                         VStack {
                             Image(.vibrationTextOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 70:35)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 70:35)
                             
                             HStack {
                                 Image(.minTextOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 20:10)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 20:10)
                                 
                                 Button {
                                     withAnimation {
@@ -114,13 +114,13 @@ struct SettingsViewOaklavn: View {
                                     Image(settingsVM.vibraEnabled ? .onOaklavn:.offOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 50:25)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 50:25)
                                 }
                                 
                                 Image(.maxTextOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 20:10)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 20:10)
                             }
                         }
                     }
@@ -129,7 +129,7 @@ struct SettingsViewOaklavn: View {
                 }
                 
                 
-            }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 1000:500)
+            }.frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 1000:500)
             
             VStack {
                 HStack {
@@ -141,7 +141,7 @@ struct SettingsViewOaklavn: View {
                             Image(.backIconOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 150:75)
                         }
                         Spacer()
                        

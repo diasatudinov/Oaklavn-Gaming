@@ -2,7 +2,7 @@ import SwiftUI
 
 struct OaklavnShopView: View {
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var user = SGUser.shared
+    @StateObject var user = OaklavnUser.shared
     @State var section: StoreSection = .skin
     @ObservedObject var viewModel: StoreViewModelSG
     @State var skinIndex: Int = 0
@@ -23,10 +23,10 @@ struct OaklavnShopView: View {
                                 Image(.backIconOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 150:75)
                             }
                             Spacer()
-                            CoinBgSG()
+                            OaklavnCoinBg()
                         }.padding([.horizontal, .top])
                     }
                 }
@@ -46,7 +46,7 @@ struct OaklavnShopView: View {
                             Image(.arrowLeftShop)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 150:75)
                                 .scaleEffect(x: -1,y: 1)
                         }
                         achievementItem(item: viewModel.shopTeamItems.filter({ $0.section == .skin })[skinIndex])
@@ -59,7 +59,7 @@ struct OaklavnShopView: View {
                             Image(.arrowLeftShop)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 150:75)
                                 
                         }
                     }
@@ -91,7 +91,7 @@ struct OaklavnShopView: View {
                     Image(item.icon)
                         .resizable()
                         .scaledToFit()
-                        .padding(SGDeviceManager.shared.deviceType == .pad ? 40:30)
+                        .padding(OaklavnDeviceManager.shared.deviceType == .pad ? 40:30)
                     
                     
                 }
@@ -103,12 +103,12 @@ struct OaklavnShopView: View {
                     Image("\(item.name)TextIcon")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 40:20)
+                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 40:20)
                         .offset(y: -7)
                 }
-                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                 .offset(y: -20)
-            }.frame(height: SGDeviceManager.shared.deviceType == .pad ? 378:240)
+            }.frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 378:240)
             
             
             Button {
@@ -133,13 +133,13 @@ struct OaklavnShopView: View {
                             Image(.btnBgShop)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                             
                             if let currentItem = viewModel.currentPersonItem, currentItem.name == item.name {
                                 Image(.stickIconOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                             }
                             
                         }
@@ -150,7 +150,7 @@ struct OaklavnShopView: View {
                             Image(.btnIconShopOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                                 .opacity(user.money >= item.price ? 1:0.5 )
                             
                             

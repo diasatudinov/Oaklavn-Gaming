@@ -7,17 +7,17 @@ enum StoreSection: Codable, Hashable {
 
 class StoreViewModelSG: ObservableObject {
     @Published var shopTeamItems: [Item] = [
-        Item(name: "spot", image: "imageSkin1Oaklavn", icon: "imageSkin1Oaklavn", section: .skin, price: 100),
-        Item(name: "snow", image: "imageSkin2Oaklavn", icon: "imageSkin2Oaklavn", section: .skin, price: 100),
-        Item(name: "pooh", image: "imageSkin3Oaklavn", icon: "imageSkin3Oaklavn", section: .skin, price: 100),
-        Item(name: "bell", image: "imageSkin4Oaklavn", icon: "imageSkin4Oaklavn", section: .skin, price: 100),
-        Item(name: "pony", image: "imageSkin5Oaklavn", icon: "imageSkin5Oaklavn", section: .skin, price: 100),
-        Item(name: "blackie", image: "imageSkin6Oaklavn", icon: "imageSkin6Oaklavn", section: .skin, price: 100),
-        Item(name: "spirit", image: "imageSkin7Oaklavn", icon: "imageSkin7Oaklavn", section: .skin, price: 100),
+        Item(name: "spot", image: "iconSkin1Oaklavn", icon: "imageSkin1Oaklavn", section: .skin, price: 100),
+        Item(name: "snow", image: "iconSkin2Oaklavn", icon: "imageSkin2Oaklavn", section: .skin, price: 100),
+        Item(name: "pooh", image: "iconSkin3Oaklavn", icon: "imageSkin3Oaklavn", section: .skin, price: 100),
+        Item(name: "bell", image: "iconSkin4Oaklavn", icon: "imageSkin4Oaklavn", section: .skin, price: 100),
+        Item(name: "pony", image: "iconSkin5Oaklavn", icon: "imageSkin5Oaklavn", section: .skin, price: 100),
+        Item(name: "blackie", image: "iconSkin6Oaklavn", icon: "imageSkin6Oaklavn", section: .skin, price: 100),
+        Item(name: "spirit", image: "iconSkin7Oaklavn", icon: "imageSkin7Oaklavn", section: .skin, price: 100),
     ]
     
     @Published var boughtItems: [Item] = [
-        Item(name: "spot", image: "imageSkin1Oaklavn", icon: "imageSkin1Oaklavn", section: .skin, price: 100),
+        Item(name: "spot", image: "iconSkin1Oaklavn", icon: "imageSkin1Oaklavn", section: .skin, price: 100),
     ] {
         didSet {
             saveBoughtItem()
@@ -35,8 +35,8 @@ class StoreViewModelSG: ObservableObject {
         loadBoughtItem()
     }
     
-    private let userDefaultsPersonKey = "BirdKeySG"
-    private let userDefaultsBoughtKey = "boughtItemsSG"
+    private let userDefaultsPersonKey = "HorseKeyOaklavn"
+    private let userDefaultsBoughtKey = "boughtItemsOaklavn"
 
     
     func saveCurrentPerson() {

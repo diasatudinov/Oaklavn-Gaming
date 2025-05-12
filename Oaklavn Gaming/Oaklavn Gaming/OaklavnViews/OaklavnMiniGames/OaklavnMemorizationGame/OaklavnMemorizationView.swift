@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct OaklavnMemorizationView: View {
-    @StateObject var user = SGUser.shared
+    @StateObject var user = OaklavnUser.shared
     @Environment(\.presentationMode) var presentationMode
     
     let cardImages = ["card1Oaklavn", "card2Oaklavn", "card3Oaklavn", "card4Oaklavn", "card5Oaklavn", "card6Oaklavn", "card7Oaklavn", "card8Oaklavn"]
@@ -32,7 +32,7 @@ struct OaklavnMemorizationView: View {
                                 Image(.backIconOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 150:75)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 150:75)
                             }
                             Spacer()
                         }.padding([.horizontal, .top])
@@ -40,7 +40,7 @@ struct OaklavnMemorizationView: View {
                         Image(.memorizationTextOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                     }
                 }
                 
@@ -50,7 +50,7 @@ struct OaklavnMemorizationView: View {
                     // Full-screen reveal of each card in sequence
                     if let idx = currentStep {
                         MemorizationCardView(imageName: cardImages[idx])
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 600:300)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 600:300)
                             .padding()
                             .transition(.opacity)
                     }
@@ -63,6 +63,7 @@ struct OaklavnMemorizationView: View {
                         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 2), count: 3), spacing: 2) {
                             ForEach(0..<cardImages.count, id: \.self) { index in
                                 MemorizationCardView(imageName: cardImages[index])
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 300:190)
                                     .onTapGesture {
                                         handleTap(on: index)
                                     }
@@ -88,7 +89,7 @@ struct OaklavnMemorizationView: View {
                             Image(.winBoardOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 800:400)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 800:400)
                             
                             HStack {
                                 
@@ -98,7 +99,7 @@ struct OaklavnMemorizationView: View {
                                     Image(.homeBtnOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                                 }
                                 Button {
                                     startGame()
@@ -106,7 +107,7 @@ struct OaklavnMemorizationView: View {
                                     Image(.nextBtnOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                                 }
                             }
                         }
@@ -126,7 +127,7 @@ struct OaklavnMemorizationView: View {
                                     Image(.homeBtnOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                                 }
                                 Button {
                                     startGame()
@@ -134,7 +135,7 @@ struct OaklavnMemorizationView: View {
                                     Image(.nextBtnOaklavn)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                                 }
                             }
                         }
