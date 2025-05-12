@@ -4,8 +4,8 @@ import SpriteKit
 struct OaklavnMazeGameView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var isWin = false
-    @State private var gameScene: MazeScene = {
-        let scene = MazeScene(size: UIScreen.main.bounds.size)
+    @State private var gameScene: OaklavnMazeScene = {
+        let scene = OaklavnMazeScene(size: UIScreen.main.bounds.size)
         scene.scaleMode = .resizeFill
         return scene
     }()
@@ -14,7 +14,7 @@ struct OaklavnMazeGameView: View {
     
     var body: some View {
         ZStack {
-            LabirintViewContainer(scene: gameScene, isWin: $isWin)
+            OaklavnMazeViewContainer(scene: gameScene, isWin: $isWin)
                 .ignoresSafeArea()
             
             VStack {
@@ -27,13 +27,13 @@ struct OaklavnMazeGameView: View {
                             Image(.backIconOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
                         Image(.mazeTextOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 300:150)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 300:150)
                         Spacer()
 
                     }.padding([.horizontal, .top])
@@ -44,7 +44,7 @@ struct OaklavnMazeGameView: View {
                     Image(.arrowBgOaklavn)
                         .resizable()
                         .scaledToFit()
-                        .frame(height: SGDeviceManager.shared.deviceType == .pad ? 300:150)
+                        .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 300:150)
                     VStack(spacing: 0) {
                         Button {
                             gameScene.moveUp()
@@ -53,16 +53,16 @@ struct OaklavnMazeGameView: View {
                             Image(.controlArrowOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
-                        HStack(spacing: SGDeviceManager.shared.deviceType == .pad ? 100:50) {
+                        HStack(spacing: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50) {
                             Button {
                                 gameScene.moveLeft()
                             } label: {
                                 Image(.controlArrowOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                                     .rotationEffect(.degrees(90))
                                     .scaleEffect(x: -1, y: 1)
                             }
@@ -73,7 +73,7 @@ struct OaklavnMazeGameView: View {
                                 Image(.controlArrowOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                                     .rotationEffect(.degrees(90))
                             }
                         }
@@ -84,7 +84,7 @@ struct OaklavnMazeGameView: View {
                             Image(.controlArrowOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                                 .scaleEffect(x: 1, y: -1)
                         }
                     }
@@ -101,7 +101,7 @@ struct OaklavnMazeGameView: View {
                         Image(.winBoardOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 800:400)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 800:400)
                         
                         HStack {
                             
@@ -111,7 +111,7 @@ struct OaklavnMazeGameView: View {
                                 Image(.homeBtnOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                             }
                             Button {
                                 gameScene.restartGame()
@@ -120,7 +120,7 @@ struct OaklavnMazeGameView: View {
                                 Image(.nextBtnOaklavn)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                             }
                         }
                     }

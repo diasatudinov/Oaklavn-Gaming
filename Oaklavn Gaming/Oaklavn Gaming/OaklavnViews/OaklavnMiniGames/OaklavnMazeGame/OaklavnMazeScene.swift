@@ -2,7 +2,6 @@ import SpriteKit
 import UIKit
 
 class OaklavnMazeScene: SKScene {
-    // MARK: - Properties
     private var maze: [[Int]] = []
     private let rows = 15
     private let cols = 15
@@ -13,10 +12,8 @@ class OaklavnMazeScene: SKScene {
     private var player: SKSpriteNode!
     private var exitNode: SKSpriteNode!
     var isWinHandler: (() -> ())?
-    // Thickness factor for walls (relative to cell size)
-    private let wallThicknessFactor: CGFloat = 0.4  // 20% of cell side
+    private let wallThicknessFactor: CGFloat = 0.4
 
-    // MARK: - Lifecycle
     override func didMove(to view: SKView) {
         backgroundColor = .clear
         maze = generateMaze(rows: rows, cols: cols)
@@ -28,7 +25,6 @@ class OaklavnMazeScene: SKScene {
         setupSwipeGestures()
     }
 
-    // MARK: - Layout Maze Area
     private func layoutMazeArea() {
         let gridRows = maze.count
         let gridCols = maze[0].count
@@ -36,14 +32,12 @@ class OaklavnMazeScene: SKScene {
         let cellSide = maxSide / CGFloat(gridCols)
         tileSize = CGSize(width: cellSide, height: cellSide)
 
-        // Center horizontally, align bottom at middle
         let totalWidth = CGFloat(gridCols) * cellSide
         let originX = (size.width - totalWidth) / 2
         let originY = size.height * 0.25
         mazeOrigin = CGPoint(x: originX, y: originY)
     }
 
-    // MARK: - Maze Generation
     private func generateMaze(rows: Int, cols: Int) -> [[Int]] {
         let gridRows = rows * 2 + 1
         let gridCols = cols * 2 + 1
@@ -64,7 +58,6 @@ class OaklavnMazeScene: SKScene {
         return grid
     }
 
-    // MARK: - Draw Maze
     private func drawMaze() {
         let gridRows = maze.count
         let gridCols = maze[0].count
@@ -81,9 +74,7 @@ class OaklavnMazeScene: SKScene {
         }
     }
 
-    // MARK: - Player Setup
     private func setupPlayer() {
-        // Start at cell (1,1)
         let startRow = 1, startCol = 1
         let pos = positionForCell(row: startRow, col: startCol)
         let texture = SKTexture(imageNamed: "imageSkin3Oaklavn")
@@ -92,7 +83,6 @@ class OaklavnMazeScene: SKScene {
         addChild(player)
     }
 
-    // MARK: - Exit Setup
     private func setupExit() {
         let gridRows = maze.count
         let gridCols = maze[0].count
@@ -114,7 +104,6 @@ class OaklavnMazeScene: SKScene {
         return CGPoint(x: x, y: y)
     }
 
-    // MARK: - Controls
     private func setupSwipeGestures() {
         guard let view = self.view else { return }
         for dir in [UISwipeGestureRecognizer.Direction.up,

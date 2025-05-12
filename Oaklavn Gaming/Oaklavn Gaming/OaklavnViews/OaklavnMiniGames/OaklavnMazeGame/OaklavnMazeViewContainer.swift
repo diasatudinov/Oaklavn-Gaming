@@ -3,8 +3,8 @@ import SpriteKit
 
 
 struct OaklavnMazeViewContainer: UIViewRepresentable {
-    @StateObject var user = SGUser.shared
-    var scene: MazeScene
+    @StateObject var user = OaklavnUser.shared
+    var scene: OaklavnMazeScene
     @Binding var isWin: Bool
     func makeUIView(context: Context) -> SKView {
         let skView = SKView(frame: UIScreen.main.bounds)
