@@ -1,9 +1,17 @@
+//
+//  SpriteViewContainer.swift
+//  Oaklavn Gaming
+//
+//  Created by Dias Atudinov on 12.05.2025.
+//
+
+
 import SwiftUI
 import SpriteKit
 
 
 struct SpriteViewContainer: UIViewRepresentable {
-    @StateObject var user = SGUser.shared
+    @StateObject var user = OaklavnUser.shared
     var scene: GameScene
     @Binding var isWin: Bool
     @Binding var score: Int

@@ -15,16 +15,16 @@ struct GameView: View {
     @State private var isWin = false
     @State private var score = 0
     @State var level: Int
-    var imagesForView: [String] = ["viewImage1","viewImage2","viewImage3","viewImage4","viewImage5", ""]
+    var imagesForView: [String] = ["viewImage1Oaklavn","viewImage2Oaklavn","viewImage3Oaklavn","viewImage4Oaklavn","viewImage5Oaklavn", "viewImage6Oaklavn", "viewImage7Oaklavn", ""]
     var body: some View {
         ZStack {
             SpriteViewContainer(scene: gameScene, isWin: $isWin, score: $score, level: level)
                 .ignoresSafeArea()
             
-            VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? 200:100) {
-                HStack(spacing: SGDeviceManager.shared.deviceType == .pad ? 200:100) {
+            VStack(spacing: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100) {
+                HStack(spacing: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100) {
                     ZStack {
-                        Image(.rectangleMainGame)
+                        Image(.rectMainGameOaklavn)
                             .resizable()
                             .scaledToFit()
                         
@@ -35,10 +35,10 @@ struct GameView: View {
                             
                         
                     }
-                    .frame(width: SGDeviceManager.shared.deviceType == .pad ? 280:140,height: SGDeviceManager.shared.deviceType == .pad ? 400:200)
+                    .frame(width: OaklavnDeviceManager.shared.deviceType == .pad ? 280:140,height: OaklavnDeviceManager.shared.deviceType == .pad ? 400:200)
                     
                     ZStack {
-                        Image(.rectangleMainGame)
+                        Image(.rectMainGameOaklavn)
                             .resizable()
                             .scaledToFit()
                         
@@ -49,12 +49,12 @@ struct GameView: View {
                             
                         
                     }
-                    .frame(width: SGDeviceManager.shared.deviceType == .pad ? 280:140,height: SGDeviceManager.shared.deviceType == .pad ? 400:200)
+                    .frame(width: OaklavnDeviceManager.shared.deviceType == .pad ? 280:140,height: OaklavnDeviceManager.shared.deviceType == .pad ? 400:200)
                 }
                 
-                HStack(spacing: SGDeviceManager.shared.deviceType == .pad ? 200:100) {
+                HStack(spacing: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100) {
                     ZStack {
-                        Image(.rectangleMainGame)
+                        Image(.rectMainGameOaklavn)
                             .resizable()
                             .scaledToFit()
                         
@@ -65,10 +65,10 @@ struct GameView: View {
                             
                         
                     }
-                    .frame(width: SGDeviceManager.shared.deviceType == .pad ? 280: 140,height: SGDeviceManager.shared.deviceType == .pad ? 400:200)
+                    .frame(width: OaklavnDeviceManager.shared.deviceType == .pad ? 280: 140,height: OaklavnDeviceManager.shared.deviceType == .pad ? 400:200)
                     
                     ZStack {
-                        Image(.rectangleMainGame)
+                        Image(.rectMainGameOaklavn)
                             .resizable()
                             .scaledToFit()
                         
@@ -79,7 +79,7 @@ struct GameView: View {
                             
                         
                     }
-                    .frame(width: SGDeviceManager.shared.deviceType == .pad ? 280:140,height: SGDeviceManager.shared.deviceType == .pad ? 400:200)
+                    .frame(width: OaklavnDeviceManager.shared.deviceType == .pad ? 280:140,height: OaklavnDeviceManager.shared.deviceType == .pad ? 400:200)
                 }
             }
             
@@ -90,32 +90,22 @@ struct GameView: View {
                             presentationMode.wrappedValue.dismiss()
                             
                         } label: {
-                            Image(.backIconSG)
+                            Image(.backIconOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                         Spacer()
-                        ZStack {
-                            Image(.scoreBgSG)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
-                            
-                            Text("\(score)")
-                                .font(.system(size: SGDeviceManager.shared.deviceType == .pad ? 40:20, weight: .bold))
-                                .foregroundStyle(.yellow)
-                                .offset(y: SGDeviceManager.shared.deviceType == .pad ? 60:30)
-                        }
-                        Spacer()
+                        
+                        
                         Button {
                             gameScene.restartLevel()
                             isWin = false
                         } label: {
-                            Image(.restartBtnSG)
+                            Image(.restartBtnOaklavn)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 100:50)
+                                .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 100:50)
                         }
                     }.padding([.horizontal, .top])
                 }
@@ -125,26 +115,34 @@ struct GameView: View {
             
             if isWin {
                 ZStack {
-                    if let item = shopVM.currentBgItem {
-                        Image(item.image)
-                            .resizable()
-                            .edgesIgnoringSafeArea(.all)
-                            .scaledToFill()
-                    }
-                    VStack(spacing: SGDeviceManager.shared.deviceType == .pad ? -80:-40) {
-                        Image(.winTextSG)
+                    Image(.gameOverBgOaklavn)
+                        .resizable()
+                        .ignoresSafeArea()
+                    VStack(spacing: -40) {
+                        Image(.winBoardOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 800:400)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 800:400)
                         
-                        Button {
-                            gameScene.restartLevel()
-                            isWin = false
-                        } label: {
-                            Image(.nextButtonSG)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                        HStack {
+                            
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Image(.homeBtnOaklavn)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
+                            }
+                            Button {
+                                gameScene.restartLevel()
+                                isWin = false
+                            } label: {
+                                Image(.nextBtnOaklavn)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
+                            }
                         }
                     }
                 }
@@ -152,17 +150,13 @@ struct GameView: View {
             
         }.background(
             ZStack {
-                if let item = shopVM.currentBgItem {
-                    Image(item.image)
-                        .resizable()
-                        .edgesIgnoringSafeArea(.all)
-                        .scaledToFill()
-                }
+                Image(.mainGameBgOaklavn)
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
+                    .scaledToFill()
+                
             }
         )
-        .onAppear {
-            achievementVM.achieveCheck(AchievementSG(image: "achi1IconSG", achievedCount: 0, achievedMaxCount: 1, isAchieved: false))
-        }
     }
 }
 

@@ -1,7 +1,6 @@
 import SpriteKit
 import SwiftUI
 
-// Тип движения корабля
 enum MovementType: Int {
     case straight = 0
     case turnLeft = 1
@@ -43,8 +42,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         switch index {
         case 0:
             roadConfigs = [
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: SGDeviceManager.shared.deviceType == .pad ? 200:100)),
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)),
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
             ]
             shipConfigs = [
                 ShipConfig(name: "ship0", initialPosition: CGPoint(x: w/2, y: fieldCenterY + fieldHeight/2 - 50), direction: CGVector(dx: 0, dy: -1), movement: .straight),
@@ -54,8 +53,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             ]
         case 1:
             roadConfigs = [
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: SGDeviceManager.shared.deviceType == .pad ? 200:100)),
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)),
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
             ]
             shipConfigs = [
                 ShipConfig(name: "ship0", initialPosition: CGPoint(x: w/2, y: fieldCenterY + fieldHeight/2 - 50), direction: CGVector(dx: 0, dy: 1), movement: .straight),
@@ -66,8 +65,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         case 2:
             roadConfigs = [
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: SGDeviceManager.shared.deviceType == .pad ? 200:100)),
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)),
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
             ]
             shipConfigs = [
                 ShipConfig(name: "ship0", initialPosition: CGPoint(x: w/2, y: fieldCenterY + fieldHeight/2 - 50), direction: CGVector(dx: 0, dy: -1), movement: .turnLeft),
@@ -78,8 +77,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         case 3:
             roadConfigs = [
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: SGDeviceManager.shared.deviceType == .pad ? 200:100)),
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)),
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
             ]
             shipConfigs = [
                 ShipConfig(name: "ship0", initialPosition: CGPoint(x: w/2, y: fieldCenterY + fieldHeight/2 - 50), direction: CGVector(dx: 0, dy: -1), movement: .straight),
@@ -90,8 +89,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         case 4:
             roadConfigs = [
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: SGDeviceManager.shared.deviceType == .pad ? 200:100)),
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)),
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
             ]
             shipConfigs = [
                 ShipConfig(name: "ship0", initialPosition: CGPoint(x: w/2, y: fieldCenterY + fieldHeight/2 - 50), direction: CGVector(dx: 0, dy: -1), movement: .straight),
@@ -102,8 +101,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         case 5:
             roadConfigs = [
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: SGDeviceManager.shared.deviceType == .pad ? 200:100)),
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)),
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
             ]
             shipConfigs = [
                 ShipConfig(name: "ship0", initialPosition: CGPoint(x: w/2, y: fieldCenterY + fieldHeight/2 - 50), direction: CGVector(dx: 0, dy: -1), movement: .turnLeft),
@@ -114,8 +113,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         case 6:
             roadConfigs = [
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: SGDeviceManager.shared.deviceType == .pad ? 200:100)),
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)),
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
             ]
             shipConfigs = [
                 ShipConfig(name: "ship0", initialPosition: CGPoint(x: w/2, y: fieldCenterY + fieldHeight/2 - 50), direction: CGVector(dx: 0, dy: -1), movement: .straight),
@@ -126,8 +125,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         case 7:
             roadConfigs = [
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: SGDeviceManager.shared.deviceType == .pad ? 200:100)),
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)),
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
             ]
             shipConfigs = [
                 ShipConfig(name: "ship0", initialPosition: CGPoint(x: w/2, y: fieldCenterY + fieldHeight/2 - 50), direction: CGVector(dx: 0, dy: -1), movement: .straight),
@@ -138,8 +137,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         case 8:
             roadConfigs = [
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: SGDeviceManager.shared.deviceType == .pad ? 200:100)),
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)),
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
             ]
             shipConfigs = [
                 ShipConfig(name: "ship0", initialPosition: CGPoint(x: w/2, y: fieldCenterY + fieldHeight/2 - 50), direction: CGVector(dx: 0, dy: -1), movement: .straight),
@@ -150,8 +149,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         case 9:
             roadConfigs = [
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: SGDeviceManager.shared.deviceType == .pad ? 200:100)),
-                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: w, height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)),
+                (CGPoint(x: w/2, y: fieldCenterY), CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100, height: fieldHeight))
             ]
             shipConfigs = [
                 ShipConfig(name: "ship0", initialPosition: CGPoint(x: w/2, y: fieldCenterY + fieldHeight/2 - 50), direction: CGVector(dx: 0, dy: 1), movement: .straight),
@@ -171,7 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard let item = shopVM.currentPersonItem else { return }
         for shipConfig in shipConfigs {
             let ship = SKSpriteNode(imageNamed: item.image)
-            ship.size = CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 120:60, height: SGDeviceManager.shared.deviceType == .pad ? 120:60)
+            ship.size = CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 140:70, height: OaklavnDeviceManager.shared.deviceType == .pad ? 80:40)
             ship.position = shipConfig.initialPosition
             ship.name = shipConfig.name
             ship.zRotation = atan2(shipConfig.direction.dy, shipConfig.direction.dx)
@@ -180,7 +179,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 "direction": NSValue(cgVector: shipConfig.direction),
                 "movementType": shipConfig.movement.rawValue
             ]
-            ship.physicsBody = SKPhysicsBody(circleOfRadius: SGDeviceManager.shared.deviceType == .pad ? 40:20)
+            ship.physicsBody = SKPhysicsBody(circleOfRadius: OaklavnDeviceManager.shared.deviceType == .pad ? 40:20)
             ship.physicsBody?.categoryBitMask = 0x1 << 0
             ship.physicsBody?.contactTestBitMask = 0x1 << 0
             ship.physicsBody?.collisionBitMask = 0
@@ -190,24 +189,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let arrowTextureName: String
             switch shipConfig.movement {
             case .straight:
-                arrowTextureName = "arrow"
+                arrowTextureName = "arrowOaklavn"
             case .turnLeft:
-                arrowTextureName = "arrowLeft"
+                arrowTextureName = "arrowLeftOaklavn"
             case .turnRight:
-                arrowTextureName = "arrowRight"
+                arrowTextureName = "arrowRightOaklavn"
             case .uTurn:
-                arrowTextureName = "arrowBack"
+                arrowTextureName = "arrowBackOaklavn"
             }
             
             let arrow = SKSpriteNode(imageNamed: arrowTextureName)
-            arrow.size = CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 40:20, height: SGDeviceManager.shared.deviceType == .pad ? 80:40)
-            arrow.position = CGPoint(x: SGDeviceManager.shared.deviceType == .pad ? 40:20, y: 0)
+            arrow.size = CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 40:20, height: OaklavnDeviceManager.shared.deviceType == .pad ? 80:40)
+            arrow.position = CGPoint(x: OaklavnDeviceManager.shared.deviceType == .pad ? 40:20, y: 0)
             arrow.zRotation = -(.pi/2)
             ship.addChild(arrow)
             shipArrows[ship] = arrow
             
             let bigArrow = SKSpriteNode(imageNamed: "arrow")
-            bigArrow.size = CGSize(width: SGDeviceManager.shared.deviceType == .pad ? 120:60, height: SGDeviceManager.shared.deviceType == .pad ? 60:30)
+            bigArrow.size = CGSize(width: OaklavnDeviceManager.shared.deviceType == .pad ? 120:60, height: OaklavnDeviceManager.shared.deviceType == .pad ? 60:30)
             bigArrow.position = CGPoint(x: shipConfig.initialPosition.x, y: shipConfig.initialPosition.y + 50)
             bigArrow.zRotation = ship.zRotation - .pi/2
             //addChild(bigArrow)

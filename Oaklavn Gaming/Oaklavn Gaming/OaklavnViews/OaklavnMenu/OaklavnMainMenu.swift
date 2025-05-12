@@ -7,9 +7,9 @@ struct OaklavnMainMenu: View {
     @State private var showMiniGames = false
     @State private var showSettings = false
     
-//    @StateObject var achievementVM = AchievementsViewModelSG()
-//    @StateObject var settingsVM = SettingsViewModelSG()
-//    @StateObject var shopVM = StoreViewModelSG()
+    @StateObject var achievementVM = AchievementsViewModelSG()
+    @StateObject var settingsVM = SettingsViewModelSG()
+    @StateObject var shopVM = StoreViewModelSG()
     
     var body: some View {
         
@@ -23,12 +23,12 @@ struct OaklavnMainMenu: View {
                         Image(.settingsIconOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 180:90)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 180:90)
                     }
                     
                     Spacer()
                     
-                    CoinBgSG()
+                    OaklavnCoinBg()
                     
                 }
                 
@@ -41,7 +41,7 @@ struct OaklavnMainMenu: View {
                         Image(.playIconOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 300:150)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 300:150)
                     }
                     
                     Button {
@@ -50,7 +50,7 @@ struct OaklavnMainMenu: View {
                         Image(.miniGamesIconOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 200:100)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 200:100)
                     }
                 }
                 Spacer()
@@ -63,7 +63,7 @@ struct OaklavnMainMenu: View {
                         Image(.shopIconOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 280:140)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 280:140)
                     }
                     Spacer()
                     
@@ -73,7 +73,7 @@ struct OaklavnMainMenu: View {
                         Image(.achievementsIconOaklavn)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: SGDeviceManager.shared.deviceType == .pad ? 280:140)
+                            .frame(height: OaklavnDeviceManager.shared.deviceType == .pad ? 280:140)
                     }
                 }
                 
@@ -102,19 +102,19 @@ struct OaklavnMainMenu: View {
 //                        }
 //                    }
         .fullScreenCover(isPresented: $showGame) {
-//            ChooseLevelView(shopVM: shopVM, achievementVM: achievementVM)
+            ChooseLevelView(shopVM: shopVM, achievementVM: achievementVM)
         }
         .fullScreenCover(isPresented: $showMiniGames) {
-//            MiniGamesChooseView()
+            OaklavnChooseView()
         }
         .fullScreenCover(isPresented: $showAchievement) {
-//            AchievementsViewSG(viewModel: achievementVM)
+            OaklavnAchievementsView(viewModel: achievementVM)
         }
         .fullScreenCover(isPresented: $showShop) {
-//            ShopViewSG(viewModel: shopVM)
+            OaklavnShopView(viewModel: shopVM)
         }
         .fullScreenCover(isPresented: $showSettings) {
-//            SettingsViewSG(settingsVM: settingsVM)
+            SettingsViewOaklavn(settingsVM: settingsVM)
         }
         
         
