@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "arrowLeftShop.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

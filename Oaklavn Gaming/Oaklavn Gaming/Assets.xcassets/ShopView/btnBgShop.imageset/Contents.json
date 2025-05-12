@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "btnBgShop.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
